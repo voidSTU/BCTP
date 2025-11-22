@@ -54,8 +54,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // *** 您的 GitHub Raw JSON 連結已在此處設定 ***
-            const JSON_URL = 'https://https://raw.githubusercontent.com/void-de/BCTP/refs/heads/main/meowmeowmeow.json'; 
+            // *** 🚨 關鍵更新：最新的 JSON 網址 ***
+            const JSON_URL = 'https://raw.githubusercontent.com/voidSTU/BCTP/refs/heads/main/meowmeowmeow.json'; 
             
             const filterContainer = document.getElementById('behavior-filters');
             const resultsArea = document.getElementById('results-area');
@@ -67,11 +67,11 @@
 
             localStorage.removeItem('selectedBehaviors');
 
-            // ... (loadLawData 函數保持不變) ...
             async function loadLawData() {
                 try {
                     const response = await fetch(JSON_URL);
                     if (!response.ok) {
+                        // 處理 404/403 等錯誤
                         throw new Error(`HTTP 錯誤! 狀態碼: ${response.status}`);
                     }
                     const fullData = await response.json();
@@ -111,7 +111,7 @@
                     checkedBehaviorNames.push(`* ${name}`); // 使用星號作為條列符號
                 });
                 
-                // 關鍵修正：使用換行符號 (\n) 連接，實現條列式顯示
+                // 使用換行符號 (\n) 連接，實現條列式顯示
                 const selectedBehaviors = checkedBehaviorNames.join('\n'); 
                 localStorage.setItem('selectedBehaviors', selectedBehaviors);
 
