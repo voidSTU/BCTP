@@ -70,8 +70,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const STATUTES_URL = 'https://raw.githubusercontent.com/augustttatf/bctp/refs/heads/main/meowmeowmeow.json';
-            const CASES_URL = 'https://raw.githubusercontent.com/augustttatf/bctp/refs/heads/main/newjeans.json';
+            const STATUTES_URL = 'https://raw.githubusercontent.com/voidSTU/BCTP/refs/heads/main/LawJson.json';
+            const CASES_URL = 'https://raw.githubusercontent.com/voidSTU/BCTP/refs/heads/main/CaseJson.json';
 
             const mainContentWrapper = document.getElementById('main-content-wrapper');
             const initialLoadingStatus = document.getElementById('initial-loading-status');
@@ -160,6 +160,14 @@
             function updateResults() {
                 resultsArea.innerHTML = '';
                 caseArea.innerHTML = '';
+                /*
+
+                const checkedBoxes = [...checkboxes].filter(cb => cb.checked);
+                if (checkedBoxes.length === 0) {
+                    resultsArea.innerHTML = '<p class="note">請勾選左側行為以查看對應法律後果。</p>';
+                    return;
+                }
+                */
 
                 const selectedLawTypes = checkedBoxes.map(cb => Number(cb.dataset.type));
                 localStorage.setItem('selectedQuestionTypes', JSON.stringify(selectedLawTypes));
